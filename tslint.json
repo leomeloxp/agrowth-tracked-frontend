@@ -1,0 +1,45 @@
+{
+  "defaultSeverity": "error",
+  "extends": ["tslint:latest", "tslint-config-airbnb", "tslint-react", "tslint-config-prettier"],
+  "jsRules": {},
+  "rules": {
+    "import-name": [
+      true,
+      {
+        "app": "App",
+        "document": "Document",
+        "graphqlTag": "gql",
+        "isomorphicUnfetch": "fetch",
+        "head": "Head",
+        "link": "Link",
+        "nprogress": "NProgress",
+        "react": "React",
+        "qrcodeReact": "QRcode",
+        "reactDom": "ReactDOM",
+        "router": "Router",
+        "styledComponents": "styled"
+      }
+    ],
+    "jsx-boolean-value": ["never"],
+    "jsx-no-lambda": [false],
+    "jsx-self-close": [true],
+    "interface-name": [false],
+    "no-submodule-imports": [
+      // Disabling submodule imports rule because Material-UI relies on submodules heavily
+      false,
+      "@material-ui/core/",
+      "@material-ui/core/CssBaseline",
+      "@material-ui/core/es",
+      "next/app",
+      "next/document",
+      "next/head",
+      "next/link",
+      "next/router"
+    ],
+    // Unused variables are still not allowed, but the one checking for this is the Typescript compiler
+    "no-unused-variable": [false],
+    "quotemark": [true, "single", "jsx-double", "avoid-escape", "avoid-template"],
+    "variable-name": [true, "allow-pascal-case"]
+  },
+  "rulesDirectory": []
+}
