@@ -5,7 +5,14 @@ import React, { Component } from 'react';
 import { IHarvest } from '../../graphql/harvest';
 import { colours } from '../../utils/colours';
 import AgrowthLogo from '../AgrowthLogo';
-import { labelDistributedBy, labelDocumentId, labelEmissionDate, labelExpires, labelNetWeight, labelTrackingCode } from '../FormattedMessages/CommomFormattedMessages';
+import {
+  labelDistributedBy,
+  labelDocumentId,
+  labelEmissionDate,
+  labelExpires,
+  labelNetWeight,
+  labelTrackingCode
+} from '../FormattedMessages/CommomFormattedMessages';
 
 export interface ITagOneState {
   title: string;
@@ -87,7 +94,7 @@ class TagOne extends Component<ITagOneProps, ITagOneState> {
             <Typography className={classes.caption} variant="caption">
               {labelTrackingCode}: {harvest.uuid}
             </Typography>
-            <QRcode value={`https://agrowth.app/tracked?qr=${harvest.uuid}`} size={190} />
+            <QRcode value={`https://agrowth.app/track?qr=${harvest.uuid}`} size={190} />
           </div>
           <div className={classes.footer}>
             <div className={classes.distributor}>
