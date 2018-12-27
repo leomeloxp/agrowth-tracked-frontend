@@ -67,6 +67,11 @@ export const LIST_HARVEST: IHarvestListQuery = gql`
       }
       produce {
         name
+        unit
+        weightUnit
+        category
+        classification
+        variety
       }
       supplier {
         name

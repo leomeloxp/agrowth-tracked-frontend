@@ -63,7 +63,7 @@ class HarvestCard extends Component<IHarvestCardProps, IHarvestCardState> {
   public state = {
     expanded: false,
     hotHarvest: {
-      distributor: this.props.harvest.distributor[0],
+      distributor: this.props.harvest.distributor,
       emissionDate: this.props.harvest.emissionDate,
       location: this.props.harvest.location,
       produce: this.props.harvest.produce,

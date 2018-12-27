@@ -9,6 +9,10 @@ export interface IProduce {
   name: string;
   unit: string;
   comments: string;
+  category: string;
+  classification: string;
+  variety: string;
+  weightUnit: string;
 }
 
 export interface IProduceListQuery extends DocumentNode {
@@ -21,6 +25,10 @@ export const ADD_PRODUCE = gql`
       id
       name
       unit
+      variety
+      classification
+      category
+      weightUnit
     }
   }
 `;
@@ -32,6 +40,10 @@ export const UPDATE_PRODUCE = gql`
       id
       name
       unit
+      variety
+      classification
+      category
+      weightUnit
     }
   }
 `;
@@ -50,6 +62,10 @@ export const LIST_PRODUCE: IProduceListQuery = gql`
       id
       name
       unit
+      variety
+      classification
+      category
+      weightUnit
     }
   }
 `;

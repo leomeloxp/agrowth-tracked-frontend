@@ -37,14 +37,22 @@ export interface IProduceDialogState {
   hotProduce?: {
     name: string;
     unit?: string;
+    variety: string;
+    classification: string;
+    category: string;
+    weightUnit: string;
   };
 }
 
 class CreateProduceDialog extends Component<IProduceDialogProps, IProduceDialogState> {
   public state = {
     hotProduce: {
+      category: '',
+      classification: '',
       name: '',
-      unit: ''
+      unit: '',
+      variety: '',
+      weightUnit: '',
     }
   };
 
@@ -120,24 +128,24 @@ class CreateProduceDialog extends Component<IProduceDialogProps, IProduceDialogS
                     <TextField
                       label={labelVariety}
                       id="produce-variety"
-                      // value={this.state.hotProduce.variety}
-                      // onChange={this.handleChange('variety')}
+                      value={this.state.hotProduce.variety}
+                      onChange={this.handleInputChange('variety')}
                       margin="normal"
                       fullWidth
                     />
                     <TextField
                       label={labelClassification}
                       id="produce-classification"
-                      // value={this.state.hotProduce.classification}
-                      // onChange={this.handleChange('classification')}
+                      value={this.state.hotProduce.classification}
+                      onChange={this.handleInputChange('classification')}
                       margin="normal"
                       fullWidth
                     />
                     <TextField
                       label={labelCategory}
                       id="produce-category"
-                      // value={this.state.hotProduce.category}
-                      // onChange={this.handleChange('category')}
+                      value={this.state.hotProduce.category}
+                      onChange={this.handleInputChange('category')}
                       margin="normal"
                       fullWidth
                     />
@@ -154,8 +162,8 @@ class CreateProduceDialog extends Component<IProduceDialogProps, IProduceDialogS
                     <TextField
                       label={labelWeightUnit}
                       id="produce-weightUnit"
-                      // value={this.state.hotProduce.weightUnit}
-                      // onChange={this.handleChange('weightUnit')}
+                      value={this.state.hotProduce.weightUnit}
+                      onChange={this.handleInputChange('weightUnit')}
                       margin="normal"
                       fullWidth
                     />
