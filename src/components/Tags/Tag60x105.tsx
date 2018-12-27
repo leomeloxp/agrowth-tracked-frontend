@@ -5,14 +5,7 @@ import React, { Component } from 'react';
 import { IHarvest } from '../../graphql/harvest';
 import { colours } from '../../utils/colours';
 import AgrowthLogo from '../AgrowthLogo';
-import {
-  labelDistributedBy,
-  labelDocumentId,
-  labelEmissionDate,
-  labelExpires,
-  labelNetWeight,
-  labelTrackingCode
-} from '../FormattedMessages/CommomFormattedMessages';
+import { labelDistributedBy, labelDocumentId, labelEmissionDate, labelExpires, labelNetWeight, labelTrackingCode } from '../FormattedMessages/CommomFormattedMessages';
 
 export interface ITagOneState {
   title: string;
@@ -102,7 +95,7 @@ class TagOne extends Component<ITagOneProps, ITagOneState> {
                 {labelDistributedBy}
               </Typography>
               <Typography className={classes.smText} variant="caption">
-                {harvest.distributor[0].name} {harvest.distributor[0].surname}
+                {harvest.distributor.name} {harvest.distributor.surname}
               </Typography>
             </div>
             <div className={classes.brandWrapper}>
