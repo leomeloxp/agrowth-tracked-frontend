@@ -7,12 +7,12 @@ export interface IProduce {
   createdAt: string;
   updatedAt: string;
   name: string;
-  unit: string;
+  // unit: string;
   comments: string;
-  category: string;
-  classification: string;
+  // category: string;
+  // classification: string;
   variety: string;
-  weightUnit: string;
+  // weightUnit: string;
 }
 
 export interface IProduceListQuery extends DocumentNode {
@@ -24,11 +24,11 @@ export const ADD_PRODUCE = gql`
     createProduce(data: $data) {
       id
       name
-      unit
+      # unit
       variety
-      classification
-      category
-      weightUnit
+      # classification
+      # category
+      # weightUnit
     }
   }
 `;
@@ -39,11 +39,11 @@ export const UPDATE_PRODUCE = gql`
       active
       id
       name
-      unit
+      # unit
       variety
-      classification
-      category
-      weightUnit
+      # classification
+      # category
+      # weightUnit
     }
   }
 `;
@@ -61,11 +61,11 @@ export const LIST_PRODUCE: IProduceListQuery = gql`
       active
       id
       name
-      unit
+      # unit
       variety
-      classification
-      category
-      weightUnit
+      # classification
+      # category
+      # weightUnit
     }
   }
 `;

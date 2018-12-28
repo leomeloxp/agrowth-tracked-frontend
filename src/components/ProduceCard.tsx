@@ -30,12 +30,12 @@ export interface IProduceCardProps extends StyledComponentProps, IProduce {}
 export interface IProduceCardState {
   isEditing: boolean;
   hotProduce?: {
-    category?: string;
-    classification?: string;
+    // category?: string;
+    // classification?: string;
     name?: string;
     variety?: string;
-    unit?: string;
-    weightUnit?: string;
+    // unit?: string;
+    // weightUnit?: string;
   };
   renderArchiveDialog: boolean;
 }
@@ -43,12 +43,12 @@ export interface IProduceCardState {
 class ProduceItem extends Component<IProduceCardProps, IProduceCardState> {
   public state = {
     hotProduce: {
-      category: this.props.category,
-      classification: this.props.classification,
+      // category: this.props.category,
+      // classification: this.props.classification,
       name: this.props.name,
-      unit: this.props.unit,
+      // unit: this.props.unit,
       variety: this.props.variety,
-      weightUnit: this.props.weightUnit
+      // weightUnit: this.props.weightUnit
     },
     isEditing: false,
     renderArchiveDialog: false
@@ -91,8 +91,9 @@ class ProduceItem extends Component<IProduceCardProps, IProduceCardState> {
               {this.props.name[0]}
             </Avatar>
           }
-          title={[this.props.name, this.props.variety, this.props.classification].join(' ')}
-          subheader={this.props.unit}
+          title={this.props.name}
+          // title={[this.props.name, this.props.variety, this.props.classification].join(' ')}
+          subheader={this.props.variety}
           action={
             <Fragment>
               <Button
@@ -156,24 +157,24 @@ class ProduceItem extends Component<IProduceCardProps, IProduceCardState> {
                         margin="normal"
                         fullWidth
                       />
-                      <TextField
+                      {/* <TextField
                         label={labelClassification}
                         id="produce-classification"
                         value={this.state.hotProduce.classification}
                         onChange={this.handleChange('classification')}
                         margin="normal"
                         fullWidth
-                      />
-                      <TextField
+                      /> */}
+                      {/* <TextField
                         label={labelCategory}
                         id="produce-category"
                         value={this.state.hotProduce.category}
                         onChange={this.handleChange('category')}
                         margin="normal"
                         fullWidth
-                      />
+                      /> */}
                       {/* <Publish/> */}
-                      <TextField
+                      {/* <TextField
                         label={labelUnit}
                         id="produce-unit"
                         value={this.state.hotProduce.unit}
@@ -188,7 +189,7 @@ class ProduceItem extends Component<IProduceCardProps, IProduceCardState> {
                         onChange={this.handleChange('weightUnit')}
                         margin="normal"
                         fullWidth
-                      />
+                      /> */}
                     </form>
                   );
                 }}

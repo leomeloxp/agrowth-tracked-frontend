@@ -36,23 +36,23 @@ export interface IProduceDialogProps extends StyledComponentProps {
 export interface IProduceDialogState {
   hotProduce?: {
     name: string;
-    unit?: string;
+    // unit?: string;
     variety: string;
-    classification: string;
-    category: string;
-    weightUnit: string;
+    // classification: string;
+    // category: string;
+    // weightUnit: string;
   };
 }
 
 class CreateProduceDialog extends Component<IProduceDialogProps, IProduceDialogState> {
   public state = {
     hotProduce: {
-      category: '',
-      classification: '',
+      // category: '',
+      // classification: '',
       name: '',
-      unit: '',
+      // unit: '',
       variety: '',
-      weightUnit: '',
+      // weightUnit: '',
     }
   };
 
@@ -133,7 +133,7 @@ class CreateProduceDialog extends Component<IProduceDialogProps, IProduceDialogS
                       margin="normal"
                       fullWidth
                     />
-                    <TextField
+                    {/* <TextField
                       label={labelClassification}
                       id="produce-classification"
                       value={this.state.hotProduce.classification}
@@ -150,7 +150,7 @@ class CreateProduceDialog extends Component<IProduceDialogProps, IProduceDialogS
                       fullWidth
                     />
                     {/* <Publish/> */}
-                    <TextField
+                    {/* <TextField
                       label={labelUnit}
                       id="produce-unit"
                       placeholder="Box"
@@ -165,7 +165,7 @@ class CreateProduceDialog extends Component<IProduceDialogProps, IProduceDialogS
                       value={this.state.hotProduce.weightUnit}
                       onChange={this.handleInputChange('weightUnit')}
                       margin="normal"
-                      fullWidth
+                      fullWidth */}
                     />
                   </form>
                 </DialogContent>
