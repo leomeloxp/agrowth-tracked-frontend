@@ -74,6 +74,7 @@ class GoogleMap extends React.Component<IGoogleMapsProps, IGoogleMapState> {
         zoom
       });
 
+      // Remove this part: marker and marker.setMap() 
       const marker = new google.maps.Marker();
       marker.setMap(map);
       google.maps.event.addListener(map, 'click', (evt: any) => {

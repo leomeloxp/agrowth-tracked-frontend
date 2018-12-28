@@ -102,7 +102,7 @@ class TagOne extends Component<ITagOneProps, ITagOneState> {
                 {labelDistributedBy}
               </Typography>
               <Typography className={classes.smText} variant="caption">
-                {harvest.distributor[0].name} {harvest.distributor[0].surname}
+                {harvest.distributor.name} {harvest.distributor.surname}
               </Typography>
             </div>
             <div className={classes.brandWrapper}>
