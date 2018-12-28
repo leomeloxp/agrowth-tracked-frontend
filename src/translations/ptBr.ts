@@ -43,6 +43,7 @@ const ptBr = {
   'label.distributedBy': 'Distribuido por',
   'label.distributor': 'Distribuidor',
   'label.documentId': 'CPF/CNPJ',
+  'label.documentIdType': 'Tipo de documento',
   'label.email': 'Email',
   'label.emissionDate': 'Data de emissão',
   'label.expires': 'Validade',

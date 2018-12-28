@@ -27,8 +27,9 @@ export interface ISupplierDialogState {
     name: string;
     surname: string;
     nickname?: string;
-    // cpf/cnpj
     idNumber: string;
+    // cpf/cnpj
+    idType: string;
     phoneNumber?: string;
     email?: string;
   };
@@ -39,6 +40,7 @@ class CreateSupplierDialog extends Component<ISupplierDialogProps, ISupplierDial
     hotSupplier: {
       email: '',
       idNumber: '',
+      idType: '',
       name: '',
       nickname: '',
       phoneNumber: '',
@@ -145,6 +147,14 @@ class CreateSupplierDialog extends Component<ISupplierDialogProps, ISupplierDial
                       fullWidth
                     />
                     <TextField
+                      label="Document ID type"
+                      id="id-type"
+                      value={this.state.hotSupplier.idType}
+                      onChange={this.handleInputChange('idType')}
+                      margin="normal"
+                      fullWidth
+                    />
+                    <TextField
                       label="Phone Number"
                       id="phone"
                       value={this.state.hotSupplier.phoneNumber}
@@ -160,14 +170,6 @@ class CreateSupplierDialog extends Component<ISupplierDialogProps, ISupplierDial
                       margin="normal"
                       fullWidth
                     />
-                    {/* <TextField
-                      label="Locations"
-                      id="location"
-                      value={''}
-                      onClick={this.handleMaps}
-                      margin="normal"
-                      fullWidth
-                    />                 */}
                   </form>
                 </DialogContent>
                 <DialogActions>

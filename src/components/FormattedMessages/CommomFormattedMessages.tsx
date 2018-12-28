@@ -37,7 +37,10 @@ export const labelNetWeight = (
   <FormattedMessage id="label.netWeight" defaultMessage="Net Weight" description="Label to field net weight" />
 );
 export const labelDocumentId = (
-  <FormattedMessage id="label.documentId" defaultMessage="Surname" description="Label to field surname" />
+  <FormattedMessage id="label.documentId" defaultMessage="Ducument ID" description="Label to field document ID" />
+);
+export const labelDocumentIdType = (
+  <FormattedMessage id="label.documentIdType" defaultMessage="Document ID type" description="Label to field document ID type" />
 );
 export const labelDistributedBy = (
   <FormattedMessage

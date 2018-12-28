@@ -11,6 +11,7 @@ export interface ISupplier {
   surname: string;
   nickname: string;
   idNumber: string;
+  idType: string;
   phoneNumber: string;
   email: string;
   comments: string;
@@ -28,15 +29,10 @@ export const ADD_SUPPLIER = gql`
       name
       surname
       idNumber
+      idType
       nickname
       phoneNumber
       email
-      # locations {
-      #   name
-      #   address
-      #   notes
-      #   coordinates
-      # }
     }
   }
 `;
@@ -60,6 +56,7 @@ export const UPDATE_SUPPLIER = gql`
       name
       surname
       idNumber
+      idType
       nickname
       phoneNumber
       email
@@ -84,14 +81,6 @@ export const ARCHIVE_SUPPLIER = gql`
 export const GET_SUPPLIER: ISupplierListQuery = gql`
   query GET_SUPPLIER($id: ID!) {
     getSupplier(id: $id) {
-      # active
-      # id
-      # name
-      # surname
-      # idNumber
-      # nickname
-      # phoneNumber
-      # email
       locations {
         id
         name
@@ -111,6 +100,7 @@ export const LIST_SUPPLIER: ISupplierListQuery = gql`
       name
       surname
       idNumber
+      idType
       nickname
       phoneNumber
       email

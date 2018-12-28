@@ -28,6 +28,7 @@ import {
   labelCancel,
   labelDelete,
   labelDocumentId,
+  labelDocumentIdType,
   labelEmail,
   labelName,
   labelNickname,
@@ -47,6 +48,7 @@ export interface ISupplierCardState {
     surname?: string;
     nickname?: string;
     idNumber?: string;
+    idType?: string;
     phoneNumber?: string;
     email?: string;
   };
@@ -59,6 +61,7 @@ class SupplierCard extends Component<ISupplierCardProps, ISupplierCardState> {
     hotSupplier: {
       email: this.props.email,
       idNumber: this.props.idNumber,
+      idType: this.props.idType,
       name: this.props.name,
       nickname: this.props.nickname,
       phoneNumber: this.props.phoneNumber,
@@ -126,7 +129,7 @@ class SupplierCard extends Component<ISupplierCardProps, ISupplierCardState> {
                 {this.props.nickname ? this.props.nickname[0] : this.props.name[0]}
               </Avatar>
             }
-            title={this.props.nickname || this.props.nickname}
+            title={this.props.nickname || [this.props.name, this.props.surname].join(' ')}
             subheader={this.props.phoneNumber}
             action={
               <Fragment>
@@ -207,6 +210,14 @@ class SupplierCard extends Component<ISupplierCardProps, ISupplierCardState> {
                           fullWidth
                         />
                         <TextField
+                          label={labelDocumentIdType}
+                          placeholder="CPF or CNPJ"
+                          value={this.state.hotSupplier.idType}
+                          onChange={this.handleChange('idType')}
+                          margin="normal"
+                          fullWidth
+                        />
+                        <TextField
                           label={labelPhoneNumber}
                           placeholder="005535 91234 5678"
                           value={this.state.hotSupplier.phoneNumber}
@@ -254,7 +265,7 @@ class SupplierCard extends Component<ISupplierCardProps, ISupplierCardState> {
                     />
                     <CardContentFieldsHolder fieldName={'Surname'} fieldDescription={this.state.hotSupplier.surname} />
                     <CardContentFieldsHolder
-                      fieldName={'Registration number'}
+                      fieldName={this.state.hotSupplier.idType}
                       fieldDescription={this.state.hotSupplier.idNumber}
                     />
                     <CardContentFieldsHolder
