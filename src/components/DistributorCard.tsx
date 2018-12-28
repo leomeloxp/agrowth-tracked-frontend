@@ -16,6 +16,7 @@ import {
   labelCancel,
   labelDelete,
   labelDocumentId,
+  labelDocumentIdType,
   labelEmail,
   labelName,
   labelNickname,
@@ -34,6 +35,7 @@ export interface IDistributorCardState {
     surname?: string;
     nickname?: string;
     idNumber?: string;
+    idType?: string;
     phoneNumber?: string;
     email?: string;
   };
@@ -44,6 +46,7 @@ class DistributorItem extends Component<IDistributorCardProps, IDistributorCardS
     hotDistributor: {
       email: this.props.email,
       idNumber: this.props.idNumber,
+      idType: this.props.idType,
       name: this.props.name,
       nickname: this.props.nickname,
       phoneNumber: this.props.phoneNumber,
@@ -90,7 +93,7 @@ class DistributorItem extends Component<IDistributorCardProps, IDistributorCardS
               {this.props.name[0]}
             </Avatar>
           }
-          title={this.props.nickname || this.props.name}
+          title={this.props.nickname || [this.props.name, this.props.surname].join(' ')}
           subheader={this.props.phoneNumber}
           action={
             <Fragment>
@@ -168,6 +171,14 @@ class DistributorItem extends Component<IDistributorCardProps, IDistributorCardS
                         placeholder="CPF or CNPJ"
                         value={this.state.hotDistributor.idNumber}
                         onChange={this.handleChange('idNumber')}
+                        margin="normal"
+                        fullWidth
+                      />
+                      <TextField
+                        label={labelDocumentIdType}
+                        placeholder="CPF or CNPJ"
+                        value={this.state.hotDistributor.idType}
+                        onChange={this.handleChange('idType')}
                         margin="normal"
                         fullWidth
                       />

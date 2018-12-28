@@ -52,12 +52,18 @@ class CreateHarvestDialog extends Component<IHarvestDialogProps, IHarvestDialogS
   public state: IHarvestDialogState = {
     distributorId: '',
     hotHarvest: {
+      category: '',
+      classification: '',
       emissionDate: todayString,
-      quantity: 0
+      expirationRange: todayString,
+      quantity: 0,
+      weightOrCount: 0.,
+      weightOrCountUnit: ''
     },
     locationId: '',
     locationName: '',
     produceId: '',
+    renderCreateLocationModal: false,
     renderCreateProduceModal: false,
     renderCreateSupplierModal: false,
     supplierId: ''
@@ -363,6 +369,52 @@ class CreateHarvestDialog extends Component<IHarvestDialogProps, IHarvestDialogS
                       ))}
                     </div>
                     <TextField
+                      id="filled-select-category"
+                      label={'Category'}
+                      className={classes.textField}
+                      SelectProps={{
+                        MenuProps: {
+                          className: classes.menu
+                        }
+                      }}
+                      helperText={
+                        <FormattedMessage
+                          id="harvestDialog.category-helperText"
+                          defaultMessage="How many units? (This is the number of tags that will be printed out)"
+                          description="Helper text to enter the total number of tags to be generated"
+                        />
+                      }
+                      // type="text"
+                      value={this.state.hotHarvest.category}
+                      onChange={this.handleInputChange('category')}
+                      margin="normal"
+                      fullWidth
+                    />
+                    <TextField
+                      id="filled-select-classification"
+                      label={'Classification'}
+                      className={classes.textField}
+                      SelectProps={{
+                        MenuProps: {
+                          className: classes.menu
+                        }
+                      }}
+                      helperText={
+                        <FormattedMessage
+                          id="harvestDialog.classification-helperText"
+                          defaultMessage="How many units? (This is the number of tags that will be printed out)"
+                          description="Helper text to enter the total number of tags to be generated"
+                        />
+                      }
+                      // type="text"
+                      value={this.state.hotHarvest.classification}
+                      onChange={this.handleInputChange('classification')}
+                      margin="normal"
+                      fullWidth
+                    />
+                    
+                    
+                    <TextField
                       id="filled-select-emission-date"
                       label={labelEmissionDate}
                       className={classes.textField}
@@ -383,6 +435,77 @@ class CreateHarvestDialog extends Component<IHarvestDialogProps, IHarvestDialogS
                       margin="normal"
                       fullWidth
                     />
+                    <TextField
+                      id="filled-select-expiration-range"
+                      label={'Expiration'}
+                      className={classes.textField}
+                      SelectProps={{
+                        MenuProps: {
+                          className: classes.menu
+                        }
+                      }}
+                      helperText={
+                        <FormattedMessage
+                          id="harvestDialog.expiration-helperText"
+                          defaultMessage="How many units? (This is the number of tags that will be printed out)"
+                          description="Helper text to enter the total number of tags to be generated"
+                        />
+                      }
+                      // type="text"
+                      value={this.state.hotHarvest.expirationRange}
+                      onChange={this.handleInputChange('expirationRange')}
+                      margin="normal"
+                      fullWidth
+                    />
+
+                    <TextField
+                      id="filled-select-weightOrCount"
+                      label={'weightOrCount'}
+                      type="number"
+                      className={classes.textField}
+                      SelectProps={{
+                        MenuProps: {
+                          className: classes.menu
+                        }
+                      }}
+                      helperText={
+                        <FormattedMessage
+                          id="harvestDialog.weightOrCount-helperText"
+                          defaultMessage="How many units? (This is the number of tags that will be printed out)"
+                          description="Helper text to enter the total number of tags to be generated"
+                        />
+                      }
+                      // type="text"
+                      value={this.state.hotHarvest.weightOrCount}
+                      onChange={this.handleInputChange('weightOrCount')}
+                      margin="normal"
+                      fullWidth
+                    />
+                    
+                    <TextField
+                      id="filled-select-weightOrCountUnit"
+                      label={'weightOrCountUnit'}
+                      // type="number"
+                      className={classes.textField}
+                      SelectProps={{
+                        MenuProps: {
+                          className: classes.menu
+                        }
+                      }}
+                      helperText={
+                        <FormattedMessage
+                          id="harvestDialog.weightOrCountUnit-helperText"
+                          defaultMessage="How many units? (This is the number of tags that will be printed out)"
+                          description="Helper text to enter the total number of tags to be generated"
+                        />
+                      }
+                      // type="text"
+                      value={this.state.hotHarvest.weightOrCountUnit}
+                      onChange={this.handleInputChange('weightOrCountUnit')}
+                      margin="normal"
+                      fullWidth
+                    />
+
                     <Query query={LIST_DISTRIBUTOR as DocumentNode}>
                       {({ loading: queryLoading, error: queryError, data: queryData }) => {
                         if (queryLoading) {
@@ -467,8 +590,13 @@ export interface IHarvestDialogProps extends StyledComponentProps {
 }
 export interface IHarvestDialogState {
   hotHarvest?: {
+    category?: string;
+    classification?: string;
     emissionDate?: string;
-    quantity?: number;
+    expirationRange?: string;
+    quantity: number;
+    weightOrCount: number;
+    weightOrCountUnit: string;
   };
   distributorId?: string;
   locationName?: string;
@@ -476,5 +604,6 @@ export interface IHarvestDialogState {
   produceId?: string;
   renderCreateSupplierModal?: boolean;
   renderCreateProduceModal?: boolean;
+  renderCreateLocationModal?: boolean;
   supplierId?: string;
 }

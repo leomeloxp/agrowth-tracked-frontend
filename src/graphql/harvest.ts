@@ -8,15 +8,20 @@ import { ISupplier } from './supplier';
 export interface IHarvest {
   active: boolean;
   id: string;
+  category: string;
+  classification: string;
   createdAt: string;
   updatedAt: string;
   emissionDate: string;
+  expirationRange: string;
   distributor: IDistributor;
   location: ILocation;
   produce: IProduce;
   quantity: number;
   supplier: ISupplier;
   uuid: string;
+  weightOrCount: number;
+  weightOrCountUnit: string;
   // comments: string;
 }
 
@@ -40,11 +45,13 @@ export const ADD_HARVEST = gql`
       data: $data
     ) {
       id
-      # produceId
-      # supplierId
+      category
+      classification
       quantity
       emissionDate
-      # distributor
+      expirationRange
+      weightOrCount
+      weightOrCountUnit
     }
   }
 `;
@@ -54,31 +61,35 @@ export const LIST_HARVEST: IHarvestListQuery = gql`
     harvestList {
       id
       active
+      category
+      classification
       quantity
       emissionDate
+      expirationRange
       distributor {
         name
         surname
-        # company
+        nickname
+        idNumber
       }
       location {
         name
+        address
         coordinates
       }
       produce {
         name
-        unit
-        weightUnit
-        category
-        classification
         variety
       }
       supplier {
         name
+        nickname
         idNumber
         surname
       }
       uuid
+      weightOrCount
+      weightOrCountUnit
     }
   }
 `;

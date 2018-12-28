@@ -10,6 +10,7 @@ export interface IDistributor {
   surname: string;
   nickname: string;
   idNumber: string;
+  idType: string;
   phoneNumber: string;
   email: string;
   comments: string;
@@ -27,6 +28,7 @@ export const ADD_DISTRIBUTOR = gql`
       surname
       nickname
       idNumber
+      idType
       phoneNumber
       email
     }
@@ -42,6 +44,7 @@ export const UPDATE_DISTRIBUTOR = gql`
       surname
       nickname
       idNumber
+      idType
       phoneNumber
       email
     }
@@ -64,6 +67,7 @@ export const LIST_DISTRIBUTOR: IDistributorListQuery = gql`
       surname
       nickname
       idNumber
+      idType
       phoneNumber
       email
     }

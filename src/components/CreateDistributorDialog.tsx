@@ -17,12 +17,13 @@ import { ADD_DISTRIBUTOR, LIST_DISTRIBUTOR } from '../graphql/distributor';
 import {
   labelCancel,
   labelDocumentId,
+  labelDocumentIdType,
   labelEmail,
   labelName,
   labelNickname,
   labelPhoneNumber,
   labelSave,
-  labelSurname
+  labelSurname,
 } from './FormattedMessages/CommomFormattedMessages';
 import LoadingSpinner from './LoadingSpinner';
 
@@ -36,8 +37,9 @@ export interface IDistributorDialogState {
     name: string;
     surname: string;
     nickname: string;
-    // cpf/cnpj
     idNumber: string;
+    // cpf/cnpj
+    idType: string;
     phoneNumber: string;
     email: string;
   };
@@ -48,6 +50,7 @@ class CreateDistributorDialog extends Component<IDistributorDialogProps, IDistri
     hotDistributor: {
       email: '',
       idNumber: '',
+      idType: '',
       name: '',
       nickname: '',
       phoneNumber: '',
@@ -157,6 +160,14 @@ class CreateDistributorDialog extends Component<IDistributorDialogProps, IDistri
                       id="id"
                       value={this.state.hotDistributor.idNumber}
                       onChange={this.handleInputChange('idNumber')}
+                      margin="normal"
+                      fullWidth
+                    />
+                    <TextField
+                      label={labelDocumentIdType}
+                      id="id-type"
+                      value={this.state.hotDistributor.idType}
+                      onChange={this.handleInputChange('idType')}
                       margin="normal"
                       fullWidth
                     />
